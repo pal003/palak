@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10th Class Results - Public Display</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #f8f8f8;
+      text-align: center;
+      padding: 20px;
+    }
+    .board {
+      background-color: #000;
+      color: rgb(48, 151, 56);
+      border: 5px solid #444;
+      padding: 30px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 20px #555;
+    }
+    h1 {
+      color: #aa3131;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 70%;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>State Board - 10th Class Results 2025</h1>
+
+  <div class="board">
+    <h2>Check Your Result</h2>
+    <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+    <button onclick="showResult()">Show Result</button>
+
+    <div class="result" id="resultDisplay"></div>
+  </div>
+
+  <script>
+    const mockResults = {
+      '101': { NAME: 'AKANSHA', PERCENTAGE: '71%', TOTAL: 427, GRADE: 'B', STATUS: 'PASS' },
+      '102': { NAME: 'AKSHU', PERCENTAGE: '49%', TOTAL: 296, GRADE: 'E', STATUS: 'PASS' },
+      '103': { NAME: 'ANU', PERCENTAGE: '81%', TOTAL: 487, GRADE: 'B+', STATUS: 'PASS' },
+      '104': { NAME: 'BINA', PERCENTAGE: '76%', TOTAL: 454, GRADE: 'B', STATUS: 'PASS' },
+      '105': { NAME: 'DEEP', PERCENTAGE: '81%', TOTAL: 483, GRADE: 'B+', STATUS: 'PASS' },
+      '106': { NAME: 'DEEPTI', PERCENTAGE: '64%', TOTAL: 382, GRADE: 'C', STATUS: 'PASS' },
+      '107': { NAME: 'DISHAN', PERCENTAGE: '61%', TOTAL: 366, GRADE: 'C', STATUS: 'PASS' },
+      '108': { NAME: 'FINA', PERCENTAGE: '88%', TOTAL: 530, GRADE: 'B+', STATUS: 'PASS' },
+      '109': { NAME: 'GEETA', PERCENTAGE: '79%', TOTAL: 473, GRADE: 'B', STATUS: 'PASS' },
+      '110': { NAME: 'HINA', PERCENTAGE: '82%', TOTAL: 473, GRADE: 'B+', STATUS: 'PASS' },
+      '111': { NAME: 'ISHA', PERCENTAGE: '77%', TOTAL: 473, GRADE: 'B+', STATUS: 'PASS' },
+      '112': { NAME: 'JAY', PERCENTAGE: '73%', TOTAL: 473, GRADE: 'B', STATUS: 'PASS' },
+      '113': { NAME: 'JIU', PERCENTAGE: '58%', TOTAL: 473, GRADE: 'D', STATUS: 'PASS' },
+      '114': { NAME: 'KISHU', PERCENTAGE: '73%', TOTAL: 473, GRADE: 'B', STATUS: 'PASS' },
+      '115': { NAME: 'NISHA', PERCENTAGE: '65%', TOTAL: 473, GRADE: 'C', STATUS: 'PASS' },
+      '116': { NAME: 'NITIN', PERCENTAGE: '67%', TOTAL: 473, GRADE: 'C', STATUS: 'PASS' },
+      '117': { NAME: 'PALAK', PERCENTAGE: '72%', TOTAL: 473, GRADE: 'B', STATUS: 'PASS' },
+      '118': { NAME: 'SITRAM', PERCENTAGE: '29%', TOTAL: 437, GRADE: 'F', STATUS: 'FAIL' },
+    };
+
+    function showResult() {
+      const roll = document.getElementById('rollNumber').value;
+      const result = mockResults[roll];
+
+      const display = document.getElementById('resultDisplay');
+
+      if (result) {
+        display.innerHTML = `
+          <strong>Name:</strong> ${result.NAME}<br>
+          <strong>Percentage:</strong> ${result.PERCENTAGE}<br>
+          <strong>Total Marks:</strong> ${result.TOTAL}<br>
+          <strong>Grade:</strong> ${result.GRADE}<br>
+          <strong>Status:</strong> ${result.STATUS}<br>
+        `;
+      } else {
+        display.innerHTML = "<span style='color: red;'>Result not found. Please check the roll number.</span>";
+      }
+    }
+  </script>
+
+</body>
+</html>
